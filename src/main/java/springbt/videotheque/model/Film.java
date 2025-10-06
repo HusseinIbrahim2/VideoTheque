@@ -16,7 +16,6 @@ public class Film {
     @NotBlank(message = "Name can't be empty")
     private String title;
 
-    @NotBlank(message = "Year can't be empty")
     private Integer year;
 
     private String description;
