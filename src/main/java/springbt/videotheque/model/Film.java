@@ -6,6 +6,7 @@ import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
+@Entity
 public class Film {
 
     @Id
