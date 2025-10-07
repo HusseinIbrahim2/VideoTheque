@@ -1,3 +1,4 @@
+DROP SCHEMA IF EXISTS VIDEOTHEQUE_SCHEMA;
 CREATE SCHEMA IF NOT EXISTS VIDEOTHEQUE_SCHEMA AUTHORIZATION SA;
 SET SCHEMA VIDEOTHEQUE_SCHEMA;
 
@@ -19,15 +20,16 @@ CREATE TABLE film (
                         description VARCHAR(550),
                         release_date DATE,
                         duration INTEGER,
-                        id_category INT,
-                        foreign key (id_category) references category(id)
+                        category_id INT,
+                        foreign key (category_id) references category(id),
+                        constraint uc_title unique (title, category_id)
 );
 
 
 CREATE TABLE film_actor (
                                 film_id   INT,
                                 actor_id   INT,
-                                primary key (film_id, actor_id),
-                                foreign key (film_id) references film(id),
-                                foreign key (actor_id) references actor(id)
+                                primary key (actor_id, film_id),
+                                foreign key (actor_id) references actor(id),
+                                foreign key (film_id) references film(id)
 );

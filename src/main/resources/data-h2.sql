@@ -33,7 +33,7 @@ VALUES ('Tom Hanks',
         'Actrice, réalisatrice et philanthrope américaine. Connue pour ses rôles dans Lara Croft : Tomb Raider, Mr. & Mrs. Smith et Maléfique.');
 
 
-INSERT INTO film (title, prod_year, description, release_date, duration, id_category)
+INSERT INTO film (title, prod_year, description, release_date, duration, category_id)
 VALUES ('Inception', 2010,
         'Un voleur qui dérobe des secrets d''entreprise grâce à la technologie du partage de rêves se voit offrir une chance de rédemption.',
         '2010-07-21', 148, 4),
