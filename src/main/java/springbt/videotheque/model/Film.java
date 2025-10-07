@@ -1,11 +1,16 @@
 package springbt.videotheque.model;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
+@Table(
+        uniqueConstraints=@UniqueConstraint(name = "uc_title", columnNames={"title", "category_id"})
+)
 public class Film {
 
     @Id
@@ -15,9 +20,17 @@ public class Film {
     @NotBlank(message = "Name can't be empty")
     private String title;
     private Integer prod_year;
-    private String description;
+    private String description; 
     private LocalDate releaseDate;
     private Integer duration;
+
+    @ManyToOne @JoinColumn(name = "category_id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
+    private Category category;
+
+    @ManyToMany(mappedBy = "films")
+    private List<Actor> actors;
 
     public long getId() {
         return id;
@@ -55,4 +68,14 @@ public class Film {
     public void setDuration(Integer duration) {
         this.duration = duration;
     }
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Actor> getActors() { return actors; }
+    public void setActors(List<Actor> actors) { this.actors = actors; }
 }
