@@ -1,7 +1,6 @@
 package springbt.videotheque.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 
 @Entity

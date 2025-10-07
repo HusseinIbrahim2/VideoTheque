@@ -13,7 +13,6 @@ public class Actor {
 
     @NotBlank(message = "Name can't be empty")
     private String name;
-
     private String bio;
 
     public long getId() {

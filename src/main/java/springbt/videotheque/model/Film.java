@@ -1,7 +1,6 @@
 package springbt.videotheque.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
@@ -15,13 +14,9 @@ public class Film {
 
     @NotBlank(message = "Name can't be empty")
     private String title;
-
-    private Integer year;
-
+    private Integer prod_year;
     private String description;
-
     private LocalDate releaseDate;
-
     private Integer duration;
 
     public long getId() {
@@ -37,10 +32,10 @@ public class Film {
         this.title = title;
     }
     public Integer getYear() {
-        return year;
+        return prod_year;
     }
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setYear(Integer prod_year) {
+        this.prod_year = prod_year;
     }
     public String getDescription() {
         return description;
