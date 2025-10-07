@@ -28,6 +28,16 @@ public class Actor {
     )
     List<Film> films;
 
+    public Actor() {
+        super();
+    }
+
+    public Actor(String name, String bio) {
+        super();
+        this.name = name;
+        this.bio = bio;
+    }
+
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
 
